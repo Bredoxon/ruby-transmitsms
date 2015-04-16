@@ -14,7 +14,7 @@ class Sms
     end
 
     apiKeySecret = Base64.encode64("#{@api_key}:#{@api_secret}")
-    MessageApi.send(message, to, "", "", "", "", "", "", "", "", "Basic #{apiKeySecret}")
+    SmsApi.send(message, to, "", "", "", "", "", "", "", "", "Basic #{apiKeySecret}")
   end
 
 end

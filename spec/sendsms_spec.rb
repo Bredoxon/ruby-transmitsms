@@ -1,7 +1,8 @@
-require "spec_helper"
-require "base64"
+require "rubygems"
+require "bundler/setup"
+require "ruby-transmitsms"
 
-describe "MessageApi" do
+describe "Sms" do
 
   before do
     Swagger.configure do |config|
@@ -11,12 +12,13 @@ describe "MessageApi" do
     end
   end
 
-  describe "MessageApi methods" do
+  describe "SMS methods" do
     it "should send sms" do
-      apiKeyPwd =Base64.encode64("15ad266c538fb36c4d90f01055aef494:moose");
-      response = MessageApi.send("Testing API now", "455123456", "", "", "", "", "", "", "", "", "Basic #{apiKeyPwd}")
+      sms = Sms.new("15ad266c538fb36c4d90f01055aef494", "moose")
+      response = sms.send("Testing API now", "61422222222")
 
-      puts response.to_body.to_s
+      puts response.body
+      puts response.code
     end
   end
 

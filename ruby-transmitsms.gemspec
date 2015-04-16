@@ -20,10 +20,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '>=2.5.0'
   s.add_development_dependency 'vcr', '>=1.5.1'
   s.add_development_dependency 'webmock', '>=1.6.2'
-  s.add_development_dependency 'autotest'  
-  s.add_development_dependency 'autotest-rails-pure'
-  s.add_development_dependency 'autotest-growl'
-  s.add_development_dependency 'autotest-fsevent'
+#  s.add_development_dependency 'autotest'  
+#  s.add_development_dependency 'autotest-rails-pure'
+#  s.add_development_dependency 'autotest-growl'
+#  s.add_development_dependency 'autotest-fsevent'
 
   s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")

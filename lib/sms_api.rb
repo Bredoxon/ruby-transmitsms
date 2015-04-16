@@ -1,18 +1,15 @@
 require "uri"
 
 class SmsApi
-  basePath = "https://api.transmitsms.com/"
+  basePath = "http://api.burst.dev.local/"
   # apiInvoker = APIInvoker
-
-  def self.escapeString(string)
-    URI.encode(string.to_s)
-  end
 
 
   # Update an existing sms
   # 
   # @param message Message text
   # @param to Number or set of up to 10,000 numbers to send the SMS to. If your number set has some invalid numbers, they won’t cause validation error, but will be returned as ‘fails’ parameter of the response (see example 3).
+  # @param from Set the alphanumeric Caller ID
   # @param send_at A time in the future to send the message
   # @param list_id This ID is the numerical reference to one of your recipient lists
   # @param dlr_callback A URL on your system which we can call to notify you of Delivery Receipts. If required, this Parameter can be different for each message sent and will take precedence over the DLR Callback URL supplied by you in the API Settings.
@@ -21,9 +18,9 @@ class SmsApi
   # @param replies_to_email Specify an email address to send responses to this message. NOTE: specified email must be authorised to send messages via add-email or in your account under the &#39;Email SMS&#39; section.
   # @param from_shared Forces sending via the shared number when you have virtual numbers
   # @param authorization in format key secret
-  # @return void
-  def self.sms (message, to, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
-    query_param_keys = []
+  # @return Success
+  def self.send (message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
+    query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared]
     headerParams = {}
 
     
@@ -32,6 +29,7 @@ class SmsApi
     options = {
       :'message' => message,
       :'to' => to,
+      :'from' => from,
       :'send_at' => send_at,
       :'list_id' => list_id,
       :'dlr_callback' => dlr_callback,
@@ -58,7 +56,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/json', ]
+    _header_content_type = ['application/x-www-form-urlencoded', ]
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -66,32 +64,11 @@ class SmsApi
     # http body (model)
     post_body = nil
     
-    if body != nil
-      if body.is_a?(Array)
-        array = Array.new
-        body.each do |item|
-          if item.respond_to?("to_body".to_sym)
-            array.push item.to_body
-          else
-            array.push item
-          end
-        end
-        post_body = array
-      else 
-        if body.respond_to?("to_body".to_sym)
-          post_body = body.to_body
-        else
-          post_body = body
-        end
-      end
-    end
-    
     # form parameters
     form_parameter_hash = {}
-    
-    
-    
+
     Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
     
   
   end
