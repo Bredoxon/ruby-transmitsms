@@ -11,10 +11,11 @@ require 'ruby-transmitsms'
 sms = Sms.new("15eg266c832fb23c4d90f01055aef355", "bluebird")
 
 # Send a message
-response = sms.send("Testing sending of sms", "455123456")
+response = sms.send("Testing sending of sms", "61455123456")
 
 # Show the result
-puts response.to_body.to_s
+puts response.code
+puts response.body
 ```
 
 ## Installation
