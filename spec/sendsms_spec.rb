@@ -8,14 +8,14 @@ describe "Sms methods" do
     @sms = Sms.new("15ad266c538fb36c4d90f01055aef494", "moose")
 
     # Mock
-    @sms_api = double("SmsApi")
-    allow(@sms_api).to(receive(:send)
+    @mock_sms_api = double("SmsApi")
+    allow(@mock_sms_api).to(receive(:send)
       .and_return(OpenStruct.new(:body => "Hello, Mock API Response", :code => 200 )))
+
+    @sms.sms_api = @mock_sms_api
   end
 
   it "should send sms with 'to' field" do
-    @sms.sms_api = @sms_api
-
     # Call method to test
     response = @sms.send("Testing API now", "61422222222")
 
@@ -25,8 +25,6 @@ describe "Sms methods" do
   end
 
   it "should send sms with 'list_id' field" do
-    @sms.sms_api = @sms_api
-
     # Call method to test
     response = @sms.send("Testing API now", :list_id => "123")
 
