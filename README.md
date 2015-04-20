@@ -37,3 +37,11 @@ $ ./setup.sh
 ```sh
 $ ./runtest.sh
 ```
+## API
+
+Sms
+
+`initialize(api_key, api_secret)` - Constructor
+params:
+* api_key
+* api_secret
