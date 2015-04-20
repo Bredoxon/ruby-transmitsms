@@ -41,7 +41,7 @@ $ ./runtest.sh
 
 ### Sms
 
-*initialize*(api_key, api_secret) - Sms object constructor.
+**initialize**(api_key, api_secret) - Sms object constructor.
 
 params:
 * `api_key`
