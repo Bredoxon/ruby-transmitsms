@@ -1,9 +1,11 @@
 class Sms
 
-  def initialize(api_key, api_secret, sms_api = SmsApi)
+  attr_writer :sms_api
+
+  def initialize(api_key, api_secret)
     @api_key = api_key
     @api_secret = api_secret
-    @sms_api = sms_api
+    @sms_api = SmsApi
 
     config_swagger
   end
