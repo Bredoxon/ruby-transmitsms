@@ -41,22 +41,22 @@ $ ./runtest.sh
 
 ### Sms
 
-`initialize(api_key, api_secret)` - Sms object constructor.
+initialize(api_key, api_secret) - Sms object constructor.
 
 params:
-* api_key
-* api_secret
+* `api_key`
+* `api_secret`
 
-`send(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared)` - Send sms to the given `to` `param` or `list_id` parameter.
+send(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared) - Send sms to the given `to` `param` or `list_id` parameter.
 
 params:
-* message
-* to
-* from
-* send_at
-* list_id
-* dlr_callback
-* reply_callback
-* validity
-* replies_to_email
-* from_shared
+* `message`
+* `to`
+* `from`
+* `send_at`
+* `list_id`
+* `dlr_callback`
+* `reply_callback`
+* `validity`
+* `replies_to_email`
+* `from_shared`
