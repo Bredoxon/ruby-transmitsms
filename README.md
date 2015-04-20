@@ -7,10 +7,10 @@ Ruby gem to easily access TransmitSMS RESTful APIs
 ```ruby
 require 'ruby-transmitsms'
 
-### Create new Sms instance
+# Create new Sms instance
 sms = Sms.new("15eg266c832fb23c4d90f01055aef355", "bluebird")
 
-### Send a message
+# Send a message
 response = sms.send("Hello, world", "61455123456")
 
 # Show the result

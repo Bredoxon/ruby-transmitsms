@@ -43,6 +43,7 @@ PLATFORMS
 
 DEPENDENCIES
   rspec (>= 2.5.0)
+  rspec-mocks
   ruby-transmitsms!
   vcr (>= 1.5.1)
   webmock (>= 1.6.2)
