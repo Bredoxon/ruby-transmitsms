@@ -8,23 +8,6 @@ describe "Sms methods" do
     @sms = Sms.new("15ad266c538fb36c4d90f01055aef494", "moose")
   end
 
-  def setup_mock(code = 200, errorCode = "SUCCESS", errorDesc = "OK")
-    @mock_sms_api = double("SmsApi")
-
-    allow(@mock_sms_api).to(receive(:send)
-      .and_return(OpenStruct.new(
-        :body => { 
-          "error" => {
-            "code" => errorCode,
-            "description" => errorDesc
-          }
-        },
-        :code => 200
-      )))
-
-    @sms.sms_api = @mock_sms_api
-  end
-
   it "should send sms with 'to' field" do
     setup_mock()
 
