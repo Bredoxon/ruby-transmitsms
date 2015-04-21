@@ -71,9 +71,9 @@ describe "Sms methods" do
   end
 
   def mock_send()
-    @mock_sms_api = double("SmsApi")
+    mock_sms_api = double("SmsApi")
 
-    allow(@mock_sms_api).to(receive(:send)
+    allow(mock_sms_api).to(receive(:send)
       .and_return(OpenStruct.new(
         :body => { 
           "error" => {"code" => "SUCCESS", "description" => "OK"}
@@ -81,13 +81,13 @@ describe "Sms methods" do
         :code => 200
       )))
 
-    @sms.sms_api = @mock_sms_api
+    @sms.sms_api = mock_sms_api
   end
 
   def mock_list_id()
-    @mock_sms_api = double("SmsApi")
+    mock_sms_api = double("SmsApi")
 
-    allow(@mock_sms_api).to(receive(:send)
+    allow(mock_sms_api).to(receive(:send)
       .and_return(OpenStruct.new(
         :body => {
           "list" => {"id" => 55314},
@@ -96,13 +96,13 @@ describe "Sms methods" do
         :code => 200
       )))
 
-    @sms.sms_api = @mock_sms_api
+    @sms.sms_api = mock_sms_api
   end
 
   def mock_error()
-    @mock_sms_api = double("SmsApi")
+    mock_sms_api = double("SmsApi")
 
-    allow(@mock_sms_api).to(receive(:send)
+    allow(mock_sms_api).to(receive(:send)
       .and_return(OpenStruct.new(
         :body => { 
           "error" => {"code" => "FIELD_INVALID", "description" => "You must provide either 'list_id' or 'to'"}
@@ -110,13 +110,13 @@ describe "Sms methods" do
         :code => 400
       )))
 
-    @sms.sms_api = @mock_sms_api
+    @sms.sms_api = mock_sms_api
   end
 
   def mock_format_number()
-    @mock_sms_api = double("SmsApi")
+    mock_sms_api = double("SmsApi")
 
-    allow(@mock_sms_api).to(receive(:format_number)
+    allow(mock_sms_api).to(receive(:format_number)
       .and_return(OpenStruct.new(
         :body => {
           "number" => {
@@ -132,20 +132,20 @@ describe "Sms methods" do
         :code => 200
       )))
 
-    @sms.sms_api = @mock_sms_api
+    @sms.sms_api = mock_sms_api
   end
 
   def mock_format_number_fail()
-    @mock_sms_api = double("SmsApi")
+    mock_sms_api = double("SmsApi")
 
-    allow(@mock_sms_api).to(receive(:format_number)
+    allow(mock_sms_api).to(receive(:format_number)
       .and_return(OpenStruct.new(
         :body => {
           "error" => {"code" => "FIELD_EMPTY", "description" => "Required field 'msisdn' is empty"}},
         :code => 400
       )))
 
-    @sms.sms_api = @mock_sms_api
+    @sms.sms_api = mock_sms_api
   end
 
 end
