@@ -61,6 +61,71 @@ class SmsApi
   # Update an existing sms
   # 
   # @param message_id Message ID
+  # @param keyword_id Keyword ID
+  # @param keyword Keyword
+  # @param number Filter results by response number
+  # @param msisdn Filter results by a particular mobile number
+  # @param page Page number, for pagination
+  # @param max Maximum results returned per page
+  # @param include_original include text of original message
+  # @param authorization in format key secret
+  # @return void
+  def self.get_sms_responses (message_id, keyword_id, keyword, number, msisdn, page, max, include_original, authorization, opts={})
+    query_param_keys = [:message_id,:keyword_id,:keyword,:number,:msisdn,:page,:max,:include_original]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message_id' => message_id,
+      :'keyword_id' => keyword_id,
+      :'keyword' => keyword,
+      :'number' => number,
+      :'msisdn' => msisdn,
+      :'page' => page,
+      :'max' => max,
+      :'include_original' => include_original,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-sms-responses.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param message_id Message ID
   # @param authorization in format key secret
   # @return void
   def self.get_sms (message_id, authorization, opts={})

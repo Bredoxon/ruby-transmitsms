@@ -91,6 +91,18 @@ describe "Sms methods" do
     expect(response.body["error"]["description"]).to(eq("Message with this ID does not exist"))
   end
 
+  it "should get sms responses" do
+    mock_get_sms_responses()
+
+    response = @sms.get_sms_responses(27746)
+
+    expect(response.code).to(eq(200))
+    expect(response.body["total"]).to(eq(1))
+    expect(response.body["responses"].length).to be > 0
+    expect(response.body["error"]["code"]).to(eq("SUCCESS"))
+    expect(response.body["error"]["description"]).to(eq("OK"))
+  end
+
   def mock_send()
     mock_sms_api = double("SmsApi")
 
@@ -198,6 +210,49 @@ describe "Sms methods" do
       )))
 
     @sms.sms_api = mock_sms_api
-  end 
+  end
+
+  def mock_get_sms_responses()
+    mock_sms_api = double ("SmsApi")
+
+    allow(mock_sms_api).to(receive(:get_sms_responses)
+      .and_return(OpenStruct.new(
+        :body => {
+          "page" => {
+            "count" => 1,
+            "number" => 1
+          },
+          "total" => 1,
+          "responses" => [
+            {
+              "id" => 157,
+              "message_id" => 27746,
+              "list_id" => 0,
+              "received_at" => "2009-10-13 13:57:55",
+              "first_name" => "Nathan",
+              "last_name" => "Bryant",
+              "msisdn" => 61406614352,
+              "response" => "Second test",
+              "longcode" => nil
+            },
+            {
+              "id" => 156,
+              "message_id" => 27746,
+              "list_id" => 0,
+              "received_at" => "2009-10-13 10:58:31",
+              "first_name" => "Nathan",
+              "last_name" => "Bryant",
+              "msisdn" => 61406614352,
+              "response" => "Testing campaign",
+              "longcode" => nil
+            }
+          ],
+          "error" => {"code" => "SUCCESS", "description" => "OK"}
+        },
+        :code => 200
+      )))
+
+    @sms.sms_api = mock_sms_api
+  end
 
 end
