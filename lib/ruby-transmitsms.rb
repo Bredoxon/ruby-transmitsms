@@ -9,5 +9,3 @@ require "swagger/version"
 
 require "sms"
 require "sms_api"
-
-require "success"
