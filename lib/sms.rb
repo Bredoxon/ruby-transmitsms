@@ -7,7 +7,14 @@ class Sms
     @api_secret = api_secret
     @sms_api = SmsApi
 
+    @api_key_secret = create_api_key_secret()
+
     config_swagger()
+  end
+
+  def create_api_key_secret()
+    api_key_secret = Base64.encode64("#{@api_key}:#{@api_secret}")
+    "Basic #{api_key_secret}"
   end
 
   def config_swagger()
@@ -20,9 +27,11 @@ class Sms
   end
 
   def send(message, to = "", from = "", send_at = "", list_id = "", dlr_callback = "", reply_callback = "", validity = "", replies_to_email = "", from_shared = "")
-    apiKeySecret = Base64.encode64("#{@api_key}:#{@api_secret}")
+    @sms_api.send(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, @api_key_secret)
+  end
 
-    @sms_api.send(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, "Basic #{apiKeySecret}")
+  def format_number(msisdn, countrycode)
+    @sms_api.format_number(msisdn, countrycode, @api_key_secret)
   end
 
 end

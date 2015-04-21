@@ -7,6 +7,59 @@ class SmsApi
 
   # Update an existing sms
   # 
+  # @param msisdn The number to check
+  # @param countrycode 2 Letter countrycode to validate number against
+  # @param authorization in format key secret
+  # @return void
+  def self.format_number (msisdn, countrycode, authorization, opts={})
+    query_param_keys = [:msisdn,:countrycode]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'msisdn' => msisdn,
+      :'countrycode' => countrycode,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/format-number.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
   # @param message Message text
   # @param to Number or set of up to 10,000 numbers to send the SMS to. If your number set has some invalid numbers, they won’t cause validation error, but will be returned as ‘fails’ parameter of the response (see example 3).
   # @param from Set the alphanumeric Caller ID
@@ -18,7 +71,7 @@ class SmsApi
   # @param replies_to_email Specify an email address to send responses to this message. NOTE: specified email must be authorised to send messages via add-email or in your account under the &#39;Email SMS&#39; section.
   # @param from_shared Forces sending via the shared number when you have virtual numbers
   # @param authorization in format key secret
-  # @return Success
+  # @return void
   def self.send (message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
     query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared]
     headerParams = {}
@@ -66,9 +119,10 @@ class SmsApi
     
     # form parameters
     form_parameter_hash = {}
-
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
