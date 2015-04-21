@@ -70,6 +70,27 @@ describe "Sms methods" do
     expect(response.body["error"]["description"]).to(eq("Required field 'msisdn' is empty"))
   end
 
+  it "should get sms info" do
+    mock_get_sms()
+
+    response = @sms.get_sms(27746)
+
+    expect(response.code).to(eq(200))
+    expect(response.body["message_id"]).to(eq(27746))
+    expect(response.body["error"]["code"]).to(eq("SUCCESS"))
+    expect(response.body["error"]["description"]).to(eq("OK"))
+  end
+
+  it "should fail get sms info for non-existing message_id" do
+    mock_get_sms_fail()
+
+    response = @sms.get_sms(1)
+
+    expect(response.code).to(eq(400))
+    expect(response.body["error"]["code"]).to(eq("NOT_FOUND"))
+    expect(response.body["error"]["description"]).to(eq("Message with this ID does not exist"))
+  end
+
   def mock_send()
     mock_sms_api = double("SmsApi")
 
@@ -128,7 +149,8 @@ describe "Sms methods" do
             "type" => 1,
             "isValid" => true
           },
-          "error" => {"code" => "SUCCESS", "description" => "OK"}},
+          "error" => {"code" => "SUCCESS", "description" => "OK"}
+        },
         :code => 200
       )))
 
@@ -141,11 +163,41 @@ describe "Sms methods" do
     allow(mock_sms_api).to(receive(:format_number)
       .and_return(OpenStruct.new(
         :body => {
-          "error" => {"code" => "FIELD_EMPTY", "description" => "Required field 'msisdn' is empty"}},
+          "error" => {"code" => "FIELD_EMPTY", "description" => "Required field 'msisdn' is empty"}
+        },
         :code => 400
       )))
 
     @sms.sms_api = mock_sms_api
   end
+
+  def mock_get_sms()
+    mock_sms_api = double("SmsApi")
+
+    allow(mock_sms_api).to(receive(:get_sms)
+      .and_return(OpenStruct.new(
+        :body => {
+          "message_id" => 27746,
+          "error" => {"code" => "SUCCESS", "description" => "OK"}
+        },
+        :code => 200
+      )))
+
+    @sms.sms_api = mock_sms_api
+  end
+
+  def mock_get_sms_fail()
+    mock_sms_api = double ("SmsApi")
+
+    allow(mock_sms_api).to(receive(:get_sms)
+      .and_return(OpenStruct.new(
+        :body => {
+          "error" => {"code" => "NOT_FOUND", "description" => "Message with this ID does not exist"}
+        },
+        :code => 400
+      )))
+
+    @sms.sms_api = mock_sms_api
+  end 
 
 end

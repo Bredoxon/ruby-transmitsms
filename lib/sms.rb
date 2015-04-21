@@ -34,4 +34,8 @@ class Sms
     @sms_api.format_number(msisdn, countrycode, @api_key_secret)
   end
 
+  def get_sms(message_id)
+    @sms_api.get_sms(message_id, @api_key_secret)
+  end
+
 end
