@@ -131,6 +131,8 @@ describe "Sms methods" do
           "error" => {"code" => "SUCCESS", "description" => "OK"}},
         :code => 200
       )))
+
+    @sms.sms_api = @mock_sms_api
   end
 
   def mock_format_number_fail()
@@ -139,18 +141,11 @@ describe "Sms methods" do
     allow(@mock_sms_api).to(receive(:format_number)
       .and_return(OpenStruct.new(
         :body => {
-          "number" => {
-            "countrycode" => 61,
-            "nationalnumber" => 455667889,
-            "national_leading_zeroes" => 455667889,
-            "rawinput" => nil,
-            "international" => 61455667889,
-            "type" => 1,
-            "isValid" => true
-          },
-          "error" => {"code" => "SUCCESS", "description" => "OK"}},
-        :code => 200
+          "error" => {"code" => "FIELD_EMPTY", "description" => "Required field 'msisdn' is empty"}},
+        :code => 400
       )))
+
+    @sms.sms_api = @mock_sms_api
   end
 
 end
