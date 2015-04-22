@@ -42,8 +42,12 @@ class Sms
     @sms_api.get_sms_responses(message_id, keyword_id, keyword, number, msisdn, page, max, include_original, @api_key_secret)
   end
 
-  def get_user_sms_responses(start, _end, page = nil, max = nil, keywords = nil, include_original = nil)
-    @sms_api.get_user_sms_responses(start, nil, page, max, keywords, include_original, @api_key_secret, {:"end" => _end})
+  def get_user_sms_responses(start = nil, enddate = nil, page = nil, max = nil, keywords = nil, include_original = nil)
+      @sms_api.get_user_sms_responses(start, enddate, page, max, keywords, include_original, @api_key_secret)
+  end
+
+  def get_sms_sent(message_id, optouts = nil, page = nil, max = nil, delivery = nil)
+    @sms_api.get_sms_sent(message_id, optouts, page, max, delivery, @api_key_secret)
   end
 
 end

@@ -106,11 +106,23 @@ describe "Sms methods" do
   it "should get user sms responses" do
     mock_get_user_sms_responses()
 
-    response = @sms.get_user_sms_responses("2015-01-01 00:00:00", "2015-12-31 23:59:59")
+    response = @sms.get_user_sms_responses("2015-04-15 00:00:00", "2015-04-16 23:59:59")
 
     expect(response.code).to(eq(200))
     expect(response.body["total"]).to(eq(1))
     expect(response.body["responses"].length).to be > 0
+    expect(response.body["error"]["code"]).to(eq("SUCCESS"))
+    expect(response.body["error"]["description"]).to(eq("OK"))
+  end
+
+  it "should get sms sent" do
+    mock_get_sms_sent()
+
+    response = @sms.get_sms_sent(27746)
+
+    expect(response.code).to(eq(200))
+    expect(response.body["total"]).to(eq(2))
+    expect(response.body["recipients"].length).to be > 0
     expect(response.body["error"]["code"]).to(eq("SUCCESS"))
     expect(response.body["error"]["description"]).to(eq("OK"))
   end
@@ -305,6 +317,34 @@ describe "Sms methods" do
       )))
 
     @sms.sms_api = mock_sms_api 
+  end
+
+  def mock_get_sms_sent()
+    mock_sms_api = double ("SmsApi")
+
+    allow(mock_sms_api).to(receive(:get_sms_sent)
+      .and_return(OpenStruct.new(
+        :body => {
+          "page" => {"count" => 1, "number" => 1},
+          "total" => 2,
+          "message" => {
+            "message_id" => 27746,
+            "send_at" => "2009-10-13 10:56:55",
+            "recipients" => 0,
+            "cost" => 0,
+            "sms" => 0,
+            "delivery_stats" => {"delivered" => 1, "pending" => 1, "bounced" => 0, "responses" => 2, "optouts" => 0}
+          },
+          "recipients" => [
+            {"msisdn" => 61406614352, "first_name" => nil, "last_name" => nil, "delivery_status" => "pending", "optout" => false},
+            {"msisdn" => 61406614352, "first_name" => nil, "last_name" => nil, "delivery_status" => "pending", "optout" => false}
+          ],
+          "error" => {"code" => "SUCCESS", "description" => "OK"}
+        },
+        :code => 200
+      )))
+
+    @sms.sms_api = mock_sms_api
   end
 
 end
