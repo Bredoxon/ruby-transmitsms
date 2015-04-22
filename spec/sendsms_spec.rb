@@ -304,7 +304,7 @@ describe "Sms methods" do
         :code => 200
       )))
 
-    @sms_sms_api = mock_sms_api 
+    @sms.sms_api = mock_sms_api 
   end
 
 end
