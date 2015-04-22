@@ -50,4 +50,8 @@ class Sms
     @sms_api.get_sms_sent(message_id, optouts, page, max, delivery, @api_key_secret)
   end
 
+  def cancel_sms(id)
+    @sms_api.cancel_sms(id, @api_key_secret)
+  end
+
 end

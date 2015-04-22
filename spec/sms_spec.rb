@@ -127,6 +127,15 @@ describe "Sms methods" do
     expect(response.body["error"]["description"]).to(eq("OK"))
   end
 
+  it "should cancel sms" do
+    mock_cancel_sms()
+
+    response = @sms.cancel_sms(27741)
+
+    expect(response.code).to(eq(400))
+    expect(response.body["error"]["code"]).to(eq("ALREADY_SENT"))
+  end
+
   def mock_send()
     mock_sms_api = double("SmsApi")
 
@@ -342,6 +351,23 @@ describe "Sms methods" do
           "error" => {"code" => "SUCCESS", "description" => "OK"}
         },
         :code => 200
+      )))
+
+    @sms.sms_api = mock_sms_api
+  end
+
+  def mock_cancel_sms()
+    mock_sms_api = double ("SmsApi")
+
+    allow(mock_sms_api).to(receive(:cancel_sms)
+      .and_return(OpenStruct.new(
+        :body => {
+          "error" => {
+            "code" => "ALREADY_SENT",
+            "description" => "This message is already sent or can not be cancelled"
+          }
+        },
+        :code => 400
       )))
 
     @sms.sms_api = mock_sms_api
