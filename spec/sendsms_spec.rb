@@ -300,7 +300,8 @@ describe "Sms methods" do
             }
           ],
           "error" => {"code" => "SUCCESS", "description" => "OK"}
-        }
+        },
+        :code => 200
       )))
 
     @sms_sms_api = mock_sms_api 
