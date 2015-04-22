@@ -103,6 +103,18 @@ describe "Sms methods" do
     expect(response.body["error"]["description"]).to(eq("OK"))
   end
 
+  it "should get user sms responses" do
+    mock_get_user_sms_responses()
+
+    response = @sms.get_user_sms_responses("2015-01-01 00:00:00", "2015-12-31 23:59:59")
+
+    expect(response.code).to(eq(200))
+    expect(response.body["total"]).to(eq(1))
+    expect(response.body["responses"].length).to be > 0
+    expect(response.body["error"]["code"]).to(eq("SUCCESS"))
+    expect(response.body["error"]["description"]).to(eq("OK"))
+  end
+
   def mock_send()
     mock_sms_api = double("SmsApi")
 
@@ -253,6 +265,45 @@ describe "Sms methods" do
       )))
 
     @sms.sms_api = mock_sms_api
+  end
+
+  def mock_get_user_sms_responses()
+    mock_sms_api = double("SmsApi")
+
+    allow(mock_sms_api).to(receive(:get_sms_responses)
+      .and_return(OpenStruct.new(
+        :body => {
+          "page" => {"count" => 1, "number" => 1},
+          "total" => 1,
+          "responses" => [
+            {
+              "id" => 22714,
+              "message_id" => 50132,
+              "list_id" => 0,
+              "received_at" => "2015-04-16 03:28:21",
+              "first_name" => nil,
+              "last_name" => nil,
+              "msisdn" => 61422265777,
+              "response" => "this is a faker message 3",
+              "longcode" => 61422222222
+            },
+            {
+              "id" => 22713,
+              "message_id" => 50470,
+              "list_id" => 55219,
+              "received_at" => "2015-04-16 03:27:41",
+              "first_name" => "test7",
+              "last_name" => "test7",
+              "msisdn" => 61422265777,
+              "response" => "this is a faker message 2",
+              "longcode" => 61422222222
+            }
+          ],
+          "error" => {"code" => "SUCCESS", "description" => "OK"}
+        }
+      )))
+
+    @sms_sms_api = mock_sms_api 
   end
 
 end

@@ -53,7 +53,7 @@ class SmsApi
     
     
     
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
@@ -118,7 +118,7 @@ class SmsApi
     
     
     
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
@@ -169,7 +169,68 @@ class SmsApi
     
     
     
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param start A timestamp to start the report from
+  # @param _end A timestamp to end the report at
+  # @param page Page number, for pagination
+  # @param max Maximum results returned per page
+  # @param keywords Filter if keyword responses should be included. Can be: ‘only’ - only keyword responses will be included‘omit’ - only regular campaign responses will be included. ‘both’ - both keyword and campaign responses will be included (default)
+  # @param include_original include text of original message
+  # @param authorization in format key secret
+  # @return void
+  def self.get_user_sms_responses (start, _end, page, max, keywords, include_original, authorization, opts={})
+    query_param_keys = [:start,:_end,:page,:max,:keywords,:include_original]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'start' => start,
+      :'_end' => _end,
+      :'page' => page,
+      :'max' => max,
+      :'keywords' => keywords,
+      :'include_original' => include_original,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-user-sms-responses.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
