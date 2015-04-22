@@ -270,7 +270,7 @@ describe "Sms methods" do
   def mock_get_user_sms_responses()
     mock_sms_api = double("SmsApi")
 
-    allow(mock_sms_api).to(receive(:get_sms_responses)
+    allow(mock_sms_api).to(receive(:get_user_sms_responses)
       .and_return(OpenStruct.new(
         :body => {
           "page" => {"count" => 1, "number" => 1},
