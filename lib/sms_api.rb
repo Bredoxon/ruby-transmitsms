@@ -1,18 +1,355 @@
 require "uri"
 
 class SmsApi
-  basePath = "https://api.transmitsms.com/"
+  basePath = "http://api.burst.dev.local/"
   # apiInvoker = APIInvoker
 
-  def self.escapeString(string)
-    URI.encode(string.to_s)
+
+  # Update an existing sms
+  # 
+  # @param id Message ID
+  # @param authorization in format key secret
+  # @return void
+  def self.cancel_sms (id, authorization, opts={})
+    query_param_keys = [:id]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'id' => id,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/cancel-sms.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
   end
 
+  # Update an existing sms
+  # 
+  # @param msisdn The number to check
+  # @param countrycode 2 Letter countrycode to validate number against
+  # @param authorization in format key secret
+  # @return void
+  def self.format_number (msisdn, countrycode, authorization, opts={})
+    query_param_keys = [:msisdn,:countrycode]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'msisdn' => msisdn,
+      :'countrycode' => countrycode,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/format-number.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param message_id Message ID
+  # @param keyword_id Keyword ID
+  # @param keyword Keyword
+  # @param number Filter results by response number
+  # @param msisdn Filter results by a particular mobile number
+  # @param page Page number, for pagination
+  # @param max Maximum results returned per page
+  # @param include_original include text of original message
+  # @param authorization in format key secret
+  # @return void
+  def self.get_sms_responses (message_id, keyword_id, keyword, number, msisdn, page, max, include_original, authorization, opts={})
+    query_param_keys = [:message_id,:keyword_id,:keyword,:number,:msisdn,:page,:max,:include_original]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message_id' => message_id,
+      :'keyword_id' => keyword_id,
+      :'keyword' => keyword,
+      :'number' => number,
+      :'msisdn' => msisdn,
+      :'page' => page,
+      :'max' => max,
+      :'include_original' => include_original,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-sms-responses.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param message_id Message ID&#39;s are made up of digits
+  # @param optouts Whether to include optouts. Valid options are: only - only get optouts, omit - do not get optouts, include - get all recipients including optouts (default)
+  # @param page Page number, for pagination
+  # @param max Maximum results returned per page
+  # @param delivery Only show messages with requested delivery status. Valid options are: delivered - only show delivered messages, failed - only show failed messages, pending - only show pending messages
+  # @param authorization in format key secret
+  # @return void
+  def self.get_sms_sent (message_id, optouts, page, max, delivery, authorization, opts={})
+    query_param_keys = [:message_id,:optouts,:page,:max,:delivery]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message_id' => message_id,
+      :'optouts' => optouts,
+      :'page' => page,
+      :'max' => max,
+      :'delivery' => delivery,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-sms-sent.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param message_id Message ID
+  # @param authorization in format key secret
+  # @return void
+  def self.get_sms (message_id, authorization, opts={})
+    query_param_keys = [:message_id]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message_id' => message_id,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-sms.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Update an existing sms
+  # 
+  # @param start A timestamp to start the report from
+  # @param enddate A timestamp to end the report at
+  # @param page Page number, for pagination
+  # @param max Maximum results returned per page
+  # @param keywords Filter if keyword responses should be included. Can be: ‘only’ - only keyword responses will be included‘omit’ - only regular campaign responses will be included. ‘both’ - both keyword and campaign responses will be included (default)
+  # @param include_original include text of original message
+  # @param authorization in format key secret
+  # @return void
+  def self.get_user_sms_responses (start, enddate, page, max, keywords, include_original, authorization, opts={})
+    query_param_keys = [:start,:enddate,:page,:max,:keywords,:include_original]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'start' => start,
+      :'enddate' => enddate,
+      :'page' => page,
+      :'max' => max,
+      :'keywords' => keywords,
+      :'include_original' => include_original,
+      :'authorization' => authorization
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-user-sms-responses.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    headers[:'Authorization'] = authorization
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
 
   # Update an existing sms
   # 
   # @param message Message text
   # @param to Number or set of up to 10,000 numbers to send the SMS to. If your number set has some invalid numbers, they won’t cause validation error, but will be returned as ‘fails’ parameter of the response (see example 3).
+  # @param from Set the alphanumeric Caller ID
   # @param send_at A time in the future to send the message
   # @param list_id This ID is the numerical reference to one of your recipient lists
   # @param dlr_callback A URL on your system which we can call to notify you of Delivery Receipts. If required, this Parameter can be different for each message sent and will take precedence over the DLR Callback URL supplied by you in the API Settings.
@@ -22,8 +359,8 @@ class SmsApi
   # @param from_shared Forces sending via the shared number when you have virtual numbers
   # @param authorization in format key secret
   # @return void
-  def self.sms (message, to, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
-    query_param_keys = []
+  def self.send (message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
+    query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared]
     headerParams = {}
 
     
@@ -32,6 +369,7 @@ class SmsApi
     options = {
       :'message' => message,
       :'to' => to,
+      :'from' => from,
       :'send_at' => send_at,
       :'list_id' => list_id,
       :'dlr_callback' => dlr_callback,
@@ -58,33 +396,13 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/json', ]
+    _header_content_type = ['application/x-www-form-urlencoded', ]
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
     headers[:'Authorization'] = authorization
     # http body (model)
     post_body = nil
-    
-    if body != nil
-      if body.is_a?(Array)
-        array = Array.new
-        body.each do |item|
-          if item.respond_to?("to_body".to_sym)
-            array.push item.to_body
-          else
-            array.push item
-          end
-        end
-        post_body = array
-      else 
-        if body.respond_to?("to_body".to_sym)
-          post_body = body.to_body
-        else
-          post_body = body
-        end
-      end
-    end
     
     # form parameters
     form_parameter_hash = {}

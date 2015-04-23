@@ -1,1 +1,1 @@
-bundle exec rspec spec/sendsms_spec.rb
+bundle exec rspec
