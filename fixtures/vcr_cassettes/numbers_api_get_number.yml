@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.burst.dev.local/get-number.json?number=61422222222
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 02:41:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1
+    body:
+      encoding: UTF-8
+      string: |2-
+
+        Notice: Undefined index: longcode_billing_date in /vagrant/dev/transmitsms/current/includes/classes/class.longcode.php on line 1906
+
+        Call Stack:
+            0.0025     235816   1. {main}() /vagrant/dev/transmitsms/current/api2/callback.php:0
+            0.1369     884496   2. burstAPIserver2->getNumber() /vagrant/dev/transmitsms/current/api2/callback.php:61
+            0.1424     940200   3. longcode->mapNumberAPI() /vagrant/dev/transmitsms/current/includes/classes/class.burstAPIserver2.php:578
+
+
+        Notice: Undefined index: longcode_billing_date in /vagrant/dev/transmitsms/current/includes/classes/class.longcode.php on line 1908
+
+        Call Stack:
+            0.0025     235816   1. {main}() /vagrant/dev/transmitsms/current/api2/callback.php:0
+            0.1369     884496   2. burstAPIserver2->getNumber() /vagrant/dev/transmitsms/current/api2/callback.php:61
+            0.1424     940200   3. longcode->mapNumberAPI() /vagrant/dev/transmitsms/current/includes/classes/class.burstAPIserver2.php:578
+
+        {"number":61422222222,"price":17,"next_charge":null,"auto_renew":true,"status":"inactive","error":{"code":"SUCCESS","description":"OK"}}
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 02:41:55 GMT
+recorded_with: VCR 2.9.3

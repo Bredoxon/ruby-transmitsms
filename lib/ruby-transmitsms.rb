@@ -7,5 +7,5 @@ require "swagger/request"
 require "swagger/response"
 require "swagger/version"
 
-require "sms"
 require "sms_api"
+require "numbers_api"

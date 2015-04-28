@@ -4,13 +4,36 @@ class SmsApi
   basePath = "http://api.burst.dev.local/"
   # apiInvoker = APIInvoker
 
+  def initialize(api_key, api_secret)
+    @api_key = api_key
+    @api_secret = api_secret
+    @sms_api = SmsApi
+
+    @api_key_secret = create_api_key_secret()
+
+    config_swagger()
+  end
+
+  def create_api_key_secret()
+    api_key_secret = Base64.encode64("#{@api_key}:#{@api_secret}")
+    "Basic #{api_key_secret}"
+  end 
+
+  def config_swagger()
+    Swagger.configure do |config|
+      config.host = "http://api.burst.dev.local/".gsub("http://", "").gsub("/", "")
+      config.base_path = "/"
+      config.format = "x-www-form-urlencoded"
+      config.camelize_params = false
+    end
+  end
+
 
   # Update an existing sms
   # 
   # @param id Message ID
-  # @param authorization in format key secret
   # @return void
-  def self.cancel_sms (id, authorization, opts={})
+  def cancel_sms (id = nil, opts={})
     query_param_keys = [:id]
     headerParams = {}
 
@@ -18,8 +41,7 @@ class SmsApi
     
     # set default values and merge with input
     options = {
-      :'id' => id,
-      :'authorization' => authorization
+      :'id' => id
       
     }.merge(opts)
 
@@ -42,7 +64,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -56,13 +80,12 @@ class SmsApi
   
   end
 
-  # Update an existing sms
-  # 
+  # format-number
+  # Format and validate a given number.
   # @param msisdn The number to check
   # @param countrycode 2 Letter countrycode to validate number against
-  # @param authorization in format key secret
   # @return void
-  def self.format_number (msisdn, countrycode, authorization, opts={})
+  def format_number (msisdn = nil, countrycode = nil, opts={})
     query_param_keys = [:msisdn,:countrycode]
     headerParams = {}
 
@@ -71,8 +94,7 @@ class SmsApi
     # set default values and merge with input
     options = {
       :'msisdn' => msisdn,
-      :'countrycode' => countrycode,
-      :'authorization' => authorization
+      :'countrycode' => countrycode
       
     }.merge(opts)
 
@@ -95,7 +117,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -119,9 +143,8 @@ class SmsApi
   # @param page Page number, for pagination
   # @param max Maximum results returned per page
   # @param include_original include text of original message
-  # @param authorization in format key secret
   # @return void
-  def self.get_sms_responses (message_id, keyword_id, keyword, number, msisdn, page, max, include_original, authorization, opts={})
+  def get_sms_responses (message_id = nil, keyword_id = nil, keyword = nil, number = nil, msisdn = nil, page = nil, max = nil, include_original = nil, opts={})
     query_param_keys = [:message_id,:keyword_id,:keyword,:number,:msisdn,:page,:max,:include_original]
     headerParams = {}
 
@@ -136,8 +159,7 @@ class SmsApi
       :'msisdn' => msisdn,
       :'page' => page,
       :'max' => max,
-      :'include_original' => include_original,
-      :'authorization' => authorization
+      :'include_original' => include_original
       
     }.merge(opts)
 
@@ -160,7 +182,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -181,9 +205,8 @@ class SmsApi
   # @param page Page number, for pagination
   # @param max Maximum results returned per page
   # @param delivery Only show messages with requested delivery status. Valid options are: delivered - only show delivered messages, failed - only show failed messages, pending - only show pending messages
-  # @param authorization in format key secret
   # @return void
-  def self.get_sms_sent (message_id, optouts, page, max, delivery, authorization, opts={})
+  def get_sms_sent (message_id = nil, optouts = nil, page = nil, max = nil, delivery = nil, opts={})
     query_param_keys = [:message_id,:optouts,:page,:max,:delivery]
     headerParams = {}
 
@@ -195,8 +218,7 @@ class SmsApi
       :'optouts' => optouts,
       :'page' => page,
       :'max' => max,
-      :'delivery' => delivery,
-      :'authorization' => authorization
+      :'delivery' => delivery
       
     }.merge(opts)
 
@@ -219,7 +241,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -236,9 +260,8 @@ class SmsApi
   # Update an existing sms
   # 
   # @param message_id Message ID
-  # @param authorization in format key secret
   # @return void
-  def self.get_sms (message_id, authorization, opts={})
+  def get_sms (message_id = nil, opts={})
     query_param_keys = [:message_id]
     headerParams = {}
 
@@ -246,8 +269,7 @@ class SmsApi
     
     # set default values and merge with input
     options = {
-      :'message_id' => message_id,
-      :'authorization' => authorization
+      :'message_id' => message_id
       
     }.merge(opts)
 
@@ -270,7 +292,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -292,9 +316,8 @@ class SmsApi
   # @param max Maximum results returned per page
   # @param keywords Filter if keyword responses should be included. Can be: ‘only’ - only keyword responses will be included‘omit’ - only regular campaign responses will be included. ‘both’ - both keyword and campaign responses will be included (default)
   # @param include_original include text of original message
-  # @param authorization in format key secret
   # @return void
-  def self.get_user_sms_responses (start, enddate, page, max, keywords, include_original, authorization, opts={})
+  def get_user_sms_responses (start = nil, enddate = nil, page = nil, max = nil, keywords = nil, include_original = nil, opts={})
     query_param_keys = [:start,:enddate,:page,:max,:keywords,:include_original]
     headerParams = {}
 
@@ -307,8 +330,7 @@ class SmsApi
       :'page' => page,
       :'max' => max,
       :'keywords' => keywords,
-      :'include_original' => include_original,
-      :'authorization' => authorization
+      :'include_original' => include_original
       
     }.merge(opts)
 
@@ -331,7 +353,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     
@@ -357,9 +381,8 @@ class SmsApi
   # @param validity Specify the maximum time to attempt to deliver. In minutes, 0 (zero) implies no limit.
   # @param replies_to_email Specify an email address to send responses to this message. NOTE: specified email must be authorised to send messages via add-email or in your account under the &#39;Email SMS&#39; section.
   # @param from_shared Forces sending via the shared number when you have virtual numbers
-  # @param authorization in format key secret
   # @return void
-  def self.send (message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, authorization, opts={})
+  def send (message = nil, to = nil, from = nil, send_at = nil, list_id = nil, dlr_callback = nil, reply_callback = nil, validity = nil, replies_to_email = nil, from_shared = nil, opts={})
     query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared]
     headerParams = {}
 
@@ -376,8 +399,7 @@ class SmsApi
       :'reply_callback' => reply_callback,
       :'validity' => validity,
       :'replies_to_email' => replies_to_email,
-      :'from_shared' => from_shared,
-      :'authorization' => authorization
+      :'from_shared' => from_shared
       
     }.merge(opts)
 
@@ -400,7 +422,9 @@ class SmsApi
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
-    headers[:'Authorization'] = authorization
+    
+    headers[:'Authorization'] = @api_key_secret
+
     # http body (model)
     post_body = nil
     

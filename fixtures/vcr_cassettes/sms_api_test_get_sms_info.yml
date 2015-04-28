@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.burst.dev.local/get-sms.json?message_id=27746
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 01:50:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1
+    body:
+      encoding: UTF-8
+      string: '{"message_id":27746,"send_at":"2009-10-13 10:56:55","recipients":0,"cost":0,"sms":0,"delivery_stats":{"delivered":1,"pending":1,"bounced":0,"responses":2,"optouts":0},"error":{"code":"SUCCESS","description":"OK"}}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 01:50:07 GMT
+recorded_with: VCR 2.9.3

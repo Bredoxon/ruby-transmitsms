@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.burst.dev.local/get-sms-responses.json?message_id=27746
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 01:58:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1
+    body:
+      encoding: UTF-8
+      string: '{"page":{"count":1,"number":1},"total":1,"responses":[{"id":157,"message_id":27746,"list_id":0,"received_at":"2009-10-13
+        13:57:55","first_name":"Nathan","last_name":"Bryant","msisdn":61406614352,"response":"Second
+        test","longcode":null},{"id":156,"message_id":27746,"list_id":0,"received_at":"2009-10-13
+        10:58:31","first_name":"Nathan","last_name":"Bryant","msisdn":61406614352,"response":"Testing
+        campaign","longcode":null}],"error":{"code":"SUCCESS","description":"OK"}}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 01:58:48 GMT
+recorded_with: VCR 2.9.3

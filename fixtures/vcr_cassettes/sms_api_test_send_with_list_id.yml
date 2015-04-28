@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.burst.dev.local/send-sms.json?list_id=55314&message=Testing%20API%20with%20list_id%20field
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 01:28:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1; Messages=1075
+    body:
+      encoding: UTF-8
+      string: '{"message_id":50913,"send_at":"2015-04-28 01:28:01","recipients":1075,"cost":0,"sms":1075,"list":{"id":55314,"name":"untitled
+        list"},"delivery_stats":{"delivered":0,"pending":0,"bounced":0,"responses":0,"optouts":0},"error":{"code":"SUCCESS","description":"OK"}}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 01:28:01 GMT
+recorded_with: VCR 2.9.3
