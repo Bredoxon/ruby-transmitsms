@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/get-number.json?number=%2B61422222222
+    uri: http://api.burst.dev.local/lease-number.json?number=0422222213
     body:
       encoding: UTF-8
       string: 'null'
@@ -18,13 +18,13 @@ http_interactions:
         Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
     headers:
       Server:
       - nginx/1.1.19
       Date:
-      - Tue, 28 Apr 2015 03:20:05 GMT
+      - Tue, 28 Apr 2015 05:14:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -43,7 +43,8 @@ http_interactions:
       - Queries=1
     body:
       encoding: UTF-8
-      string: '{"number":61422222222,"price":17,"next_charge":null,"auto_renew":true,"status":"inactive","error":{"code":"SUCCESS","description":"OK"}}'
+      string: '{"error":{"code":"FIELD_INVALID","description":"This number is not
+        available for lease."}}'
     http_version: 
-  recorded_at: Tue, 28 Apr 2015 03:20:05 GMT
+  recorded_at: Tue, 28 Apr 2015 05:14:28 GMT
 recorded_with: VCR 2.9.3

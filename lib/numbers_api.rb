@@ -85,8 +85,8 @@ class NumbersApi
   # @param filter Possible values are owned and available
   # @param page Page number, for pagination
   # @param max   Maximum results returned per page
-  # @return Success
-  def listNumberInfo (filter = nil, page = nil, max = nil, opts={})
+  # @return void
+  def get_numbers (filter = nil, page = nil, max = nil, opts={})
     query_param_keys = [:filter,:page,:max]
     headerParams = {}
 
@@ -129,9 +129,8 @@ class NumbersApi
     form_parameter_hash = {}
     
     
-    response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Success.new(response)
     
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
@@ -139,8 +138,8 @@ class NumbersApi
   # Lease a dedicated virtual number
   # 
   # @param number The virtual number to lease. Omit this field to be given a random number. Use get-numbers to find out which numbers are currently available.
-  # @return Success
-  def leaseNumber (number = nil, opts={})
+  # @return void
+  def lease_number (number = nil, opts={})
     query_param_keys = [:number]
     headerParams = {}
 
@@ -181,9 +180,8 @@ class NumbersApi
     form_parameter_hash = {}
     
     
-    response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Success.new(response)
     
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
