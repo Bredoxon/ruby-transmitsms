@@ -31,8 +31,8 @@ class AccountApi
 
   # Get a summary of your account balance.
   # 
-  # @return Success
-  def getBalance (opts={})
+  # @return void
+  def get_balance (opts={})
     query_param_keys = []
     headerParams = {}
 
@@ -72,9 +72,8 @@ class AccountApi
     form_parameter_hash = {}
     
     
-    response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make.body
-     Success.new(response)
     
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
