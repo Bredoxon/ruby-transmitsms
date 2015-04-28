@@ -9,3 +9,4 @@ require "swagger/version"
 
 require "sms_api"
 require "numbers_api"
+require "email_api"

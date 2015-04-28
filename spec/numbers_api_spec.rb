@@ -9,7 +9,7 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
-class VCRTest < Test::Unit::TestCase
+class NumbersApiTest < Test::Unit::TestCase
 
   def setup()
     @api = NumbersApi.new("15ad266c538fb36c4d90f01055aef494", "moose")
