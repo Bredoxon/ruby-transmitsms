@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.burst.dev.local/get-list.json?list_id=55314
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 07:59:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1
+    body:
+      encoding: UTF-8
+      string: '{"page":{"count":108,"number":1},"members_total":1075,"id":55314,"name":"untitled
+        list","created":"2014-10-29 04:44:31","members_active":1075,"fields":[],"members":[{"list_id":55314,"msisdn":61400031418,"first_name":"Janice","last_name":"Florence","created_at":"2014-11-19
+        00:52:54","status":"active"},{"list_id":55314,"msisdn":61400048835,"first_name":"Elizabeth","last_name":"McKenna","created_at":"2014-11-19
+        00:52:53","status":"active"},{"list_id":55314,"msisdn":61400070667,"first_name":"Michael","last_name":"Karabatsos","created_at":"2014-11-19
+        00:52:55","status":"active"},{"list_id":55314,"msisdn":61400077544,"first_name":"Vanessa","last_name":"Saccuzzo","created_at":"2014-11-19
+        00:52:53","status":"active"},{"list_id":55314,"msisdn":61400088109,"first_name":"Aiden","last_name":"Murphy","created_at":"2014-11-19
+        00:52:55","status":"active"},{"list_id":55314,"msisdn":61400103325,"first_name":"Dettsy","last_name":"Schopf","created_at":"2014-11-19
+        00:52:54","status":"active"},{"list_id":55314,"msisdn":61400110195,"first_name":"Jasmine","last_name":"Smith","created_at":"2014-11-19
+        00:52:53","status":"active"},{"list_id":55314,"msisdn":61400124714,"first_name":"Hugh","last_name":"Heller","created_at":"2014-11-19
+        00:52:53","status":"active"},{"list_id":55314,"msisdn":61400201091,"first_name":"Marina","last_name":"Corda","created_at":"2014-11-19
+        00:52:54","status":"active"},{"list_id":55314,"msisdn":61400233560,"first_name":"Filippo","last_name":"De
+        Santis","created_at":"2014-11-19 00:52:54","status":"active"}],"error":{"code":"SUCCESS","description":"OK"}}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:59:33 GMT
+recorded_with: VCR 2.9.3
