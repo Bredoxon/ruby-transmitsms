@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.burst.dev.local/get-lists.json
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - ruby-swagger-4.06.08
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Api-Key:
+      - ''
+      Authorization:
+      - |
+        Basic MTVhZDI2NmM1MzhmYjM2YzRkOTBmMDEwNTVhZWY0OTQ6bW9vc2U=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Tue, 28 Apr 2015 23:11:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.4.39-1+deb.sury.org~precise+2
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Mashape-Billing:
+      - Queries=1
+    body:
+      encoding: UTF-8
+      string: '{"page":{"count":2,"number":1},"lists_total":12,"lists":[{"id":55214,"name":"test
+        list 2","created":"2013-11-06 04:23:27","members_active":2,"fields":[],"members_total":2},{"id":55218,"name":"My
+        Test List","created":"2013-11-10 22:03:55","members_active":0,"fields":[],"members_total":1},{"id":55219,"name":"fred","created":"2013-11-11
+        00:47:06","members_active":9,"fields":[],"members_total":14},{"id":55225,"name":"moose1","created":"2013-11-21
+        00:44:09","members_active":1,"fields":[],"members_total":1},{"id":55235,"name":"untitled
+        list","created":"2013-12-03 22:40:35","members_active":8,"fields":{"field_1":"Date
+        Added"},"members_total":13},{"id":55244,"name":"untitled list 7","created":"2014-01-28
+        00:14:58","members_active":1075,"fields":{"field_1":"Last Name","field_2":"Date
+        of Birth","field_3":"Gender","field_4":"Email","field_10":"Address1"},"members_total":1103},{"id":55260,"name":"untitled
+        list 8","created":"2014-05-30 01:17:42","members_active":1,"fields":{"field_2":"message"},"members_total":2},{"id":55291,"name":"Virgin
+        List","created":"2014-07-23 01:57:03","members_active":104237,"fields":[],"members_total":104238},{"id":55292,"name":"Virgin
+        And None","created":"2014-07-23 04:54:11","members_active":1,"fields":[],"members_total":2},{"id":55293,"name":"for
+        victory","created":"2014-07-31 04:26:32","members_active":4,"fields":{"field_1":"BIrthday"},"members_total":4}],"error":{"code":"SUCCESS","description":"OK"}}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 23:11:32 GMT
+recorded_with: VCR 2.9.3
