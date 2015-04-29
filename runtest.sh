@@ -5,3 +5,4 @@ ruby spec/email_sms_api_spec.rb
 ruby spec/account_api_spec.rb
 ruby spec/keywords_api_spec.rb
 ruby spec/lists_api_spec.rb
+ruby spec/resellers_api_spec.rb
