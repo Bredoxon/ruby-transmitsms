@@ -369,6 +369,61 @@ class SmsApi
   
   end
 
+  # Reply to a message
+  # message-reply
+  # @param message Message text
+  # @param from Set the alphanumeric Caller ID
+  # @param to Number or set of up to 10,000 numbers to send the SMS to. If your number set has some invalid numbers, they won’t cause validation error, but will be returned as ‘fails’ parameter of the response (see example 3).
+  # @return void
+  def message_reply (message = nil, from = nil, to = nil, opts={})
+    query_param_keys = [:message,:from,:to]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message' => message,
+      :'from' => from,
+      :'to' => to
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/message-reply.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    
+    headers[:'Authorization'] = @api_key_secret
+
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
   # Update an existing sms
   # 
   # @param message Message text
