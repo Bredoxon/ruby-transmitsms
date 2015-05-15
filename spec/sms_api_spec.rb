@@ -32,12 +32,24 @@ class SmsApiTest < Test::Unit::TestCase
       # Call method to test
       response = @api.message_reply("Testing API to field", "61422222222", "61412345678")
 
-      puts response.code
-      puts response.body
-
       # Assert result
       assert response.code == 200
       assert response.body["result"] == "SYSTEM: Message response handled\n"
+      assert response.body["error"]["code"] == "SUCCESS"
+      assert response.body["error"]["description"] == "OK"
+    end
+  end
+
+  def test_get_message_log()
+    VCR.use_cassette("sms_api_test_get_message_log") do
+      # Call method to test
+      response = @api.get_message_log("50666", "61422345678")
+
+      # Assert result
+      assert response.code == 200
+      assert response.body["message_id"] == 50666
+      assert response.body["caller_id"] == 61422265404
+      assert response.body["mobile"] == 61422345678
       assert response.body["error"]["code"] == "SUCCESS"
       assert response.body["error"]["description"] == "OK"
     end

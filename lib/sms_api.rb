@@ -133,6 +133,59 @@ class SmsApi
   
   end
 
+  # Get Message Log info
+  # get-message-log
+  # @param message_id Message Id
+  # @param mobile Mobile number
+  # @return void
+  def get_message_log (message_id = nil, mobile = nil, opts={})
+    query_param_keys = [:message_id,:mobile]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'message_id' => message_id,
+      :'mobile' => mobile
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/get-message-log.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded', ]
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    
+    headers[:'Authorization'] = @api_key_secret
+
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
   # Update an existing sms
   # 
   # @param message_id Message ID
