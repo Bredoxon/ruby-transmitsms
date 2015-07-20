@@ -80,7 +80,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -157,7 +157,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -210,7 +210,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -287,7 +287,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -344,7 +344,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -397,7 +397,7 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -450,7 +450,58 @@ class ListsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
+    headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
+
+    
+    
+    headers[:'Authorization'] = @api_key_secret
+
+    # http body (model)
+    post_body = nil
+    
+    # form parameters
+    form_parameter_hash = {}
+    
+    
+    
+    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    
+  
+  end
+
+  # Remove contact list.
+  # 
+  # @param list_id ID of the list to remove.
+  # @return void
+  def remove_list (list_id = nil, opts={})
+    query_param_keys = [:list_id]
+    headerParams = {}
+
+    
+    
+    # set default values and merge with input
+    options = {
+      :'list_id' => list_id
+      
+    }.merge(opts)
+
+    #resource path
+    path = "/remove-list.json".sub('{format}','json')
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+
+    # header parameters
+    headers = {}
+
+    _header_accept = 'application/json'
+    if _header_accept != ''
+      headerParams['Accept'] = _header_accept
+    end 
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     

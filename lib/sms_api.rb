@@ -60,7 +60,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -113,7 +113,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -133,10 +133,10 @@ class SmsApi
   
   end
 
-  # Get Message Log info
   # get-message-log
-  # @param message_id Message Id
-  # @param mobile Mobile number
+  # Format and validate a given number.
+  # @param message_id The message to retrieve
+  # @param mobile The mobile used in message
   # @return void
   def get_message_log (message_id = nil, mobile = nil, opts={})
     query_param_keys = [:message_id,:mobile]
@@ -166,7 +166,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -181,7 +181,7 @@ class SmsApi
     
     
     
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
+    Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
     
   
   end
@@ -231,7 +231,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -290,7 +290,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -341,7 +341,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -402,7 +402,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -457,7 +457,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -526,7 +526,7 @@ class SmsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     

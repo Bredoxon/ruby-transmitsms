@@ -78,7 +78,7 @@ class KeywordsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -147,7 +147,7 @@ class KeywordsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
@@ -202,7 +202,7 @@ class KeywordsApi
     if _header_accept != ''
       headerParams['Accept'] = _header_accept
     end 
-    _header_content_type = ['application/x-www-form-urlencoded', ]
+    _header_content_type = ['application/x-www-form-urlencoded']
     headerParams['Content-Type'] = _header_content_type.length > 0 ? _header_content_type[0] : 'application/json'
 
     
