@@ -78,6 +78,16 @@ class ListsApiTest < Test::Unit::TestCase
     end
   end
 
+  def test_remove_list()
+    VCR.use_cassette("lists_api_remove_list") do
+      response = @api.remove_list(55329)
+
+      assert response.code == 200
+      assert response.body["error"]["code"] == "SUCCESS"
+      assert response.body["error"]["description"] == "OK"
+    end
+  end
+
   def test_optout_list_member()
     VCR.use_cassette("lists_api_optout_list_member") do
       response = @api.optout_list_member(55314, 61400233560)
