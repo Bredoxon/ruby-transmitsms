@@ -39,9 +39,10 @@ class ResellersApi
   # @param timezone A valid timezone, Australia/Sydney. Defaults to your own
   # @param client_pays Set to true if the client will pay (the default) or false if you will pay
   # @param sms_margin The number of cents to add to the base SMS price. A decimal value
+  # @param number_margin The number of cents to add to the base Number price. A decimal value
   # @return void
-  def add_client (name = nil, contact = nil, email = nil, password = nil, msisdn = nil, timezone = nil, client_pays = nil, sms_margin = nil, opts={})
-    query_param_keys = [:name,:contact,:email,:password,:msisdn,:timezone,:client_pays,:sms_margin]
+  def add_client (name = nil, contact = nil, email = nil, password = nil, msisdn = nil, timezone = nil, client_pays = nil, sms_margin = nil, number_margin = nil, opts={})
+    query_param_keys = [:name,:contact,:email,:password,:msisdn,:timezone,:client_pays,:sms_margin,:number_margin]
     headerParams = {}
 
     
@@ -55,7 +56,8 @@ class ResellersApi
       :'msisdn' => msisdn,
       :'timezone' => timezone,
       :'client_pays' => client_pays,
-      :'sms_margin' => sms_margin
+      :'sms_margin' => sms_margin,
+      :'number_margin' => number_margin
       
     }.merge(opts)
 
