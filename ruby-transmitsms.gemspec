@@ -3,7 +3,7 @@
 #require "swagger/version"
 
 Gem::Specification.new do |s|
-  s.metadata["allowed_push_host"] = "http://localhost:8808"
+  s.metadata["allowed_push_host"] = "https://rubygems.org"
 
   s.name        = "ruby-transmitsms"
   s.version     = "0.0.1"
