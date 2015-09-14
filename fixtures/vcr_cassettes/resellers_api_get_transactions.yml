@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx/1.1.19
       Date:
-      - Wed, 29 Apr 2015 07:32:18 GMT
+      - Mon, 14 Sep 2015 07:53:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.4.39-1+deb.sury.org~precise+2
+      - PHP/5.4.44-1+deb.sury.org~precise+1
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -43,7 +43,19 @@ http_interactions:
       - Queries=1
     body:
       encoding: UTF-8
-      string: '{"page":{"count":0,"number":1},"transactions_total":0,"error":{"code":"SUCCESS","description":"OK"}}'
+      string: '{"page":{"count":1,"number":1},"transactions_total":6,"transactions":[{"id":17389230,"user_id":2026,"description":"card
+        processing fee","amount":-1,"balance_standing":"$14.630","created":"2015-09-10
+        06:33:43","type_description":"","type_id":3},{"id":17389229,"user_id":2026,"description":"Credit
+        Top Up - $5.00 (+ $1 card processing fee)","amount":6,"balance_standing":"$15.630","created":"2015-09-10
+        06:33:43","type_description":"","type_id":23},{"id":17389228,"user_id":2026,"description":"card
+        processing fee","amount":-1,"balance_standing":"$9.630","created":"2015-09-10
+        06:32:45","type_description":"","type_id":3},{"id":17389227,"user_id":2026,"description":"Credit
+        Top Up - $5.00 (+ $1 card processing fee)","amount":6,"balance_standing":"$10.630","created":"2015-09-10
+        06:32:44","type_description":"","type_id":23},{"id":17389226,"user_id":2026,"description":"card
+        processing fee","amount":-1,"balance_standing":"$4.630","created":"2015-09-10
+        06:25:45","type_description":"","type_id":3},{"id":17389225,"user_id":2026,"description":"Credit
+        Top Up - $5.00 (+ $1 card processing fee)","amount":6,"balance_standing":"$5.630","created":"2015-09-10
+        06:25:45","type_description":"","type_id":23}],"error":{"code":"SUCCESS","description":"OK"}}'
     http_version: 
-  recorded_at: Wed, 29 Apr 2015 07:32:18 GMT
+  recorded_at: Mon, 14 Sep 2015 07:53:09 GMT
 recorded_with: VCR 2.9.3

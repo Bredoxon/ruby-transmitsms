@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx/1.1.19
       Date:
-      - Wed, 29 Apr 2015 00:41:50 GMT
+      - Mon, 14 Sep 2015 07:37:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.4.39-1+deb.sury.org~precise+2
+      - PHP/5.4.44-1+deb.sury.org~precise+1
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -45,7 +45,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"page":{"count":2,"number":1},"clients_total":15,"clients":[{"id":2024,"name":"wefwefwef","contact":"wefwefwef","email":"fred@treial.com","msisdn":61422265404,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-07-10
         05:54:11","apikey":"3802a0cf6efd0eeba64ddfbd6ff4a8f8","apisecret":"","recharge_amount":0,"total_lists":0,"total_sms":0,"total_contacts":0,"total_spend":0,"total_revenue":0,"credit_based":false,"trial":"no","trial_expiry_date":"2014-01-01","balance":0},{"id":2026,"name":"refrestest1","contact":"refrestest1","email":"refrestest@test.com","msisdn":61422265404,"currency":"AUD","client_pays":true,"sms_margin":2,"timezone":"Africa\/Abidjan","created":"2014-08-19
-        06:44:35","apikey":"75c0f8ee939dcaeff4ac29ace2bfe8e1","apisecret":"","recharge_amount":0,"total_lists":5,"total_sms":5,"total_contacts":0,"total_spend":0.37,"total_revenue":0.1,"credit_based":false,"trial":"no","trial_expiry_date":"2014-08-20","balance":-0.37},{"id":2007,"name":"notrialuser88","contact":"notrialuser88","email":"notrialuser88@test.com","msisdn":61435666588,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-05-28
+        06:44:35","apikey":"75c0f8ee939dcaeff4ac29ace2bfe8e1","apisecret":"","recharge_amount":0,"total_lists":5,"total_sms":5,"total_contacts":0,"total_spend":0.37,"total_revenue":0.1,"credit_based":false,"trial":"no","trial_expiry_date":"2014-08-20","balance":14.63},{"id":2007,"name":"notrialuser88","contact":"notrialuser88","email":"notrialuser88@test.com","msisdn":61435666588,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-05-28
         05:27:53","apikey":"90569a17af06304982eb01ceb8a24911","apisecret":null,"recharge_amount":0,"total_lists":0,"total_sms":0,"total_contacts":0,"total_spend":0,"total_revenue":0,"credit_based":false,"trial":"no","trial_expiry_date":"2014-06-04","balance":0},{"id":2006,"name":"notrialuser57","contact":"notrialuser57","email":"notrialuser57@test.com","msisdn":61435666577,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-05-28
         05:27:24","apikey":"db22415877d16b0500b55888d302e38c","apisecret":null,"recharge_amount":0,"total_lists":0,"total_sms":0,"total_contacts":0,"total_spend":0,"total_revenue":0,"credit_based":false,"trial":"no","trial_expiry_date":"2014-06-04","balance":0},{"id":2005,"name":"notrialuser56","contact":"notrialuser56","email":"notrialuser56@test.com","msisdn":61435666556,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-05-28
         05:26:31","apikey":"f48f0693da4337c59753dae1481c16c9","apisecret":null,"recharge_amount":0,"total_lists":0,"total_sms":0,"total_contacts":0,"total_spend":0,"total_revenue":0,"credit_based":false,"trial":"no","trial_expiry_date":"2014-06-04","balance":0},{"id":2004,"name":"notrialuser55","contact":"notrialuser55","email":"notrialuser55@test.com","msisdn":61435666556,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2014-05-28
@@ -55,5 +55,5 @@ http_interactions:
         02:13:20","apikey":"488cef775f5af4951373bf06c577a0b2","apisecret":"","recharge_amount":0,"total_lists":3,"total_sms":0,"total_contacts":0,"total_spend":0,"total_revenue":0,"credit_based":false,"trial":"yes","trial_expiry_date":"2014-03-30","balance":0},{"id":1987,"name":"notrialuser3","contact":"notrialuser3","email":"notrialuser3@test.com","msisdn":61422288888,"currency":"AUD","client_pays":true,"sms_margin":0,"timezone":"Africa\/Abidjan","created":"2013-11-04
         01:15:29","apikey":"93e8f100fcb2ccdcc3add91feeeb4201","apisecret":"green","recharge_amount":0,"total_lists":3,"total_sms":2,"total_contacts":0,"total_spend":0.108,"total_revenue":0,"credit_based":false,"trial":"no","trial_expiry_date":null,"balance":55.892}],"error":{"code":"SUCCESS","description":"OK"}}'
     http_version: 
-  recorded_at: Wed, 29 Apr 2015 00:41:50 GMT
+  recorded_at: Mon, 14 Sep 2015 07:37:41 GMT
 recorded_with: VCR 2.9.3
