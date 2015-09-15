@@ -43,13 +43,13 @@ class SmsApiTest < Test::Unit::TestCase
   def test_get_message_log()
     VCR.use_cassette("sms_api_test_get_message_log") do
       # Call method to test
-      response = @api.get_message_log("50666", "61422345678")
+      response = @api.get_message_log("50694", "61422222222")
 
       # Assert result
       assert response.code == 200
-      assert response.body["message_id"] == 50666
-      assert response.body["caller_id"] == 61422265404
-      assert response.body["mobile"] == 61422345678
+      assert response.body["message_id"] == 50694
+      assert response.body["caller_id"] == 61422345678
+      assert response.body["mobile"] == 61422222222
       assert response.body["error"]["code"] == "SUCCESS"
       assert response.body["error"]["description"] == "OK"
     end
@@ -131,7 +131,7 @@ class SmsApiTest < Test::Unit::TestCase
       response = @api.get_sms_responses(27746)
 
       assert response.code == 200
-      assert response.body["total"] == 1
+      assert response.body["total"] == 2
       assert response.body["responses"].length > 0
       assert response.body["error"]["code"] == "SUCCESS"
       assert response.body["error"]["description"] == "OK"
@@ -140,11 +140,11 @@ class SmsApiTest < Test::Unit::TestCase
 
   def test_get_user_sms_responses()
     VCR.use_cassette("sms_api_test_get_user_sms_responses") do
-      response = @api.get_user_sms_responses("2015-04-15 00:00:00", "2015-04-16 23:59:59")
+      response = @api.get_user_sms_responses("2015-09-13 00:00:00", "2015-04-20 23:59:59")
 
+      puts response.body
       assert response.code == 200
       assert response.body["total"] == 1
-      assert response.body["responses"].length > 0
       assert response.body["error"]["code"] == "SUCCESS"
       assert response.body["error"]["description"] == "OK"
     end

@@ -489,9 +489,10 @@ class SmsApi
   # @param validity Specify the maximum time to attempt to deliver. In minutes, 0 (zero) implies no limit.
   # @param replies_to_email Specify an email address to send responses to this message. NOTE: specified email must be authorised to send messages via add-email or in your account under the &#39;Email SMS&#39; section.
   # @param from_shared Forces sending via the shared number when you have virtual numbers
+  # @param countrycode Formats the numbers given in to as internation format for this 2 letter country code.
   # @return void
-  def send (message = nil, to = nil, from = nil, send_at = nil, list_id = nil, dlr_callback = nil, reply_callback = nil, validity = nil, replies_to_email = nil, from_shared = nil, opts={})
-    query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared]
+  def send (message = nil, to = nil, from = nil, send_at = nil, list_id = nil, dlr_callback = nil, reply_callback = nil, validity = nil, replies_to_email = nil, from_shared = nil, countrycode = nil, opts={})
+    query_param_keys = [:message,:to,:from,:send_at,:list_id,:dlr_callback,:reply_callback,:validity,:replies_to_email,:from_shared,:countrycode]
     headerParams = {}
 
     
@@ -507,7 +508,8 @@ class SmsApi
       :'reply_callback' => reply_callback,
       :'validity' => validity,
       :'replies_to_email' => replies_to_email,
-      :'from_shared' => from_shared
+      :'from_shared' => from_shared,
+      :'countrycode' => countrycode
       
     }.merge(opts)
 

@@ -3,13 +3,13 @@
 #require "swagger/version"
 
 Gem::Specification.new do |s|
-  s.metadata["allowed_push_host"] = "http://localhost:8808"
+  s.metadata["allowed_push_host"] = "https://rubygems.org"
 
   s.name        = "ruby-transmitsms"
-  s.version     = "0.0.1"
-  s.authors     = ["Jeremiah John Macariola"]
-  s.email       = ["maiah@burstsms.com"]
-  s.homepage    = "http://burstsms.com.au"
+  s.version     = "0.1.0"
+  s.authors     = ["Transmitsms Developers"]
+  s.email       = ["transmitsms@gmail.com"]
+  s.homepage    = "http://transmitsms.com"
   s.summary     = "Ruby SDK"
   s.description = "Ruby gem to easily access TransmitSMS RESTful APIs"
 

@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx/1.1.19
       Date:
-      - Tue, 28 Apr 2015 01:47:16 GMT
+      - Mon, 14 Sep 2015 07:26:51 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.4.39-1+deb.sury.org~precise+2
+      - PHP/5.4.44-1+deb.sury.org~precise+1
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -46,5 +46,5 @@ http_interactions:
       string: '{"error":{"code":"FIELD_EMPTY","description":"Required field ''msisdn''
         is empty"}}'
     http_version: 
-  recorded_at: Tue, 28 Apr 2015 01:47:16 GMT
+  recorded_at: Mon, 14 Sep 2015 07:26:51 GMT
 recorded_with: VCR 2.9.3

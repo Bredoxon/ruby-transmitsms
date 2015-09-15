@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.burst.dev.local/get-transaction.json?id=17389295
+    uri: http://api.burst.dev.local/get-transaction.json?id=17389227
     body:
       encoding: US-ASCII
       string: ''
@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx/1.1.19
       Date:
-      - Wed, 29 Apr 2015 07:39:28 GMT
+      - Mon, 14 Sep 2015 07:55:45 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.4.39-1+deb.sury.org~precise+2
+      - PHP/5.4.44-1+deb.sury.org~precise+1
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -43,8 +43,9 @@ http_interactions:
       - Queries=1
     body:
       encoding: UTF-8
-      string: '{"id":17389295,"user_id":1981,"description":"Message Send (Quicksend
-        - 1)","amount":0,"balance_standing":496227.625,"created":"2015-04-27 05:51:58","message_id":0,"type_description":"quicksend","type_id":11,"error":{"code":"SUCCESS","description":"OK"}}'
+      string: '{"id":17389227,"user_id":2026,"description":"Credit Top Up - $5.00
+        (+ $1 card processing fee)","amount":6,"balance_standing":10.63,"created":"2015-09-10
+        06:32:44","message_id":0,"type_description":"","type_id":23,"error":{"code":"SUCCESS","description":"OK"}}'
     http_version: 
-  recorded_at: Wed, 29 Apr 2015 07:39:28 GMT
+  recorded_at: Mon, 14 Sep 2015 07:55:45 GMT
 recorded_with: VCR 2.9.3
