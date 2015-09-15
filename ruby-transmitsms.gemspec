@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = "0.0.1"
   s.authors     = ["Transmitsms Developers"]
   s.email       = ["transmitsms@gmail.com"]
-  s.homepage    = "http://burstsms.com.au"
+  s.homepage    = "http://transmitsms.com"
   s.summary     = "Ruby SDK"
   s.description = "Ruby gem to easily access TransmitSMS RESTful APIs"
 
