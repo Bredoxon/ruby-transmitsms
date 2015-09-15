@@ -62,9 +62,9 @@ class ResellersApiTest < Test::Unit::TestCase
   def test_get_transactions()
     VCR.use_cassette("resellers_api_get_transactions") do
       response = @api.get_transactions(2026)
-      
+
       assert_equal 200, response.code
-      assert_equal 0, response.body["transactions_total"]
+      assert_equal 6, response.body["transactions_total"]
       assert_equal "SUCCESS", response.body["error"]["code"]
       assert_equal "OK", response.body["error"]["description"]
     end
@@ -72,11 +72,11 @@ class ResellersApiTest < Test::Unit::TestCase
 
   def test_get_transaction()
     VCR.use_cassette("resellers_api_get_transaction") do
-      response = @api.get_transaction(17389295)
+      response = @api.get_transaction(17389227)
 
       assert_equal 200, response.code
-      assert_equal 17389295, response.body["id"]
-      assert_equal 1981, response.body["user_id"]
+      assert_equal 17389227, response.body["id"]
+      assert_equal 2026, response.body["user_id"]
       assert_equal "SUCCESS", response.body["error"]["code"]
       assert_equal "OK", response.body["error"]["description"]
     end

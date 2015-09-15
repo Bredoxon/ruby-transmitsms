@@ -3,6 +3,9 @@ ruby-transmitsms
 
 Ruby gem to easily access TransmitSMS RESTful APIs
 
+[![Gem Version](https://badge.fury.io/rb/ruby-transmitsms.svg)](http://badge.fury.io/rb/ruby-transmitsms)
+[![Build Status](https://drone.io/github.com/transmitsms/ruby-transmitsms/status.png)](https://drone.io/github.com/transmitsms/ruby-transmitsms/latest)
+
 ### Sample Usage
 ```ruby
 require 'ruby-transmitsms'
