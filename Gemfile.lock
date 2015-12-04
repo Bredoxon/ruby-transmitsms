@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-transmitsms (0.0.1)
+    ruby-transmitsms (0.1.1)
       addressable (>= 2.2.4)
       json (>= 1.4.6)
       typhoeus (>= 0.2.1)
