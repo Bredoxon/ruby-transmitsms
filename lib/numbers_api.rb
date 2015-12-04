@@ -1,7 +1,7 @@
 require "uri"
 
 class NumbersApi
-  basePath = "http://api.burst.dev.local/"
+  basePath = "https://api.transmitsms.com/"
   # apiInvoker = APIInvoker
 
   def initialize(api_key, api_secret)
@@ -21,7 +21,7 @@ class NumbersApi
 
   def config_swagger()
     Swagger.configure do |config|
-      config.host = "http://api.burst.dev.local/".gsub("http://", "").gsub("/", "")
+      config.host = "https://api.transmitsms.com/".gsub("https://", "").gsub("/", "")
       config.base_path = "/"
       config.format = "x-www-form-urlencoded"
       config.camelize_params = false
