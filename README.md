@@ -42,7 +42,7 @@ $ ./runtest.sh
 ```
 ## API
 
-### Sms
+### SmsApi
 
 **initialize**(api_key, api_secret) - Sms object constructor.
 
@@ -50,16 +50,9 @@ params:
 * `api_key`
 * `api_secret`
 
-**send**(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared) - Send sms to the given `to` param or `list_id` param.
+**send**(message, to, from, send_at, list_id, dlr_callback, reply_callback, validity, replies_to_email, from_shared, countrycode) - Send sms to the given `to` param or `list_id` param.
 
-params:
-* `message`
-* `to`
-* `from`
-* `send_at`
-* `list_id`
-* `dlr_callback`
-* `reply_callback`
-* `validity`
-* `replies_to_email`
-* `from_shared`
+params: See [send-sms](http://support.burstsms.com/hc/en-us/articles/202500828-send-sms) for parameter descriptions.
+
+**format_number**(msisdn, countrycode) - Format given mobile number.
+params: See [format-number](http://support.burstsms.com/hc/en-us/articles/203098949-format-number) for parameter descriptions.
