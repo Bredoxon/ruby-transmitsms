@@ -21,7 +21,7 @@ class SmsApi
 
   def config_swagger()
     Swagger.configure do |config|
-      config.host = "https://api.transmitsms.com/".gsub("https://", "").gsub("/", "")
+      config.host = "https://api.transmitsms.com/".gsub("http://", "").gsub("https://", "").gsub("/", "")
       config.base_path = "/"
       config.format = "x-www-form-urlencoded"
       config.camelize_params = false
@@ -29,7 +29,7 @@ class SmsApi
   end
 
 
-  # Update an existing sms
+  # Cancel a message you have scheduled to be sent in the future.
   # 
   # @param id Message ID
   # @return void
@@ -80,8 +80,8 @@ class SmsApi
   
   end
 
-  # format-number
   # Format and validate a given number.
+  # 
   # @param msisdn The number to check
   # @param countrycode 2 Letter countrycode to validate number against
   # @return void
@@ -186,7 +186,7 @@ class SmsApi
   
   end
 
-  # Update an existing sms
+  # Pick up responses to messages you have sent. Filter by keyword or for just one phone number.
   # 
   # @param message_id Message ID
   # @param keyword_id Keyword ID
@@ -251,7 +251,7 @@ class SmsApi
   
   end
 
-  # Update an existing sms
+  # Get a list of recipients from a message send. Get up to date information such as opt-out status and delivery status.
   # 
   # @param message_id Message ID&#39;s are made up of digits
   # @param optouts Whether to include optouts. Valid options are: only - only get optouts, omit - do not get optouts, include - get all recipients including optouts (default)
@@ -310,7 +310,7 @@ class SmsApi
   
   end
 
-  # Update an existing sms
+  # Get information about a message you have sent.
   # 
   # @param message_id Message ID
   # @return void
@@ -361,7 +361,7 @@ class SmsApi
   
   end
 
-  # Update an existing sms
+  # Pick up responses to messages you have sent. Instead of setting message ID, you should provide a time frame.
   # 
   # @param start A timestamp to start the report from
   # @param enddate A timestamp to end the report at
@@ -477,7 +477,7 @@ class SmsApi
   
   end
 
-  # Update an existing sms
+  # Sends sms to the given number or list id
   # 
   # @param message Message text
   # @param to Number or set of up to 10,000 numbers to send the SMS to. If your number set has some invalid numbers, they won’t cause validation error, but will be returned as ‘fails’ parameter of the response (see example 3).

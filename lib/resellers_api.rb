@@ -21,7 +21,7 @@ class ResellersApi
 
   def config_swagger()
     Swagger.configure do |config|
-      config.host = "https://api.transmitsms.com/".gsub("https://", "").gsub("/", "")
+      config.host = "https://api.transmitsms.com/".gsub("http://", "").gsub("https://", "").gsub("/", "")
       config.base_path = "/"
       config.format = "x-www-form-urlencoded"
       config.camelize_params = false
