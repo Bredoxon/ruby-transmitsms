@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.burst.dev.local/get-user-sms-responses.json?enddate=2015-04-20%2023:59:59&start=2015-09-13%2000:00:00
+    uri: http://api.transmitsms.com/get-user-sms-responses.json?enddate=2015-04-20%2023:59:59&start=2015-09-13%2000:00:00
     body:
       encoding: US-ASCII
       string: ''

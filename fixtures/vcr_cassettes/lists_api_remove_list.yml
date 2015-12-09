@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/remove-list.json?list_id=55329
+    uri: http://api.transmitsms.com/remove-list.json?list_id=55329
     body:
       encoding: UTF-8
       string: 'null'

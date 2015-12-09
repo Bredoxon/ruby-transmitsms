@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/edit-keyword.json?keyword=NEWS&number=61422222222
+    uri: http://api.transmitsms.com/edit-keyword.json?keyword=NEWS&number=61422222222
     body:
       encoding: UTF-8
       string: 'null'

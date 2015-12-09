@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.burst.dev.local/format-number.json?countrycode=AU&msisdn=0455667889
+    uri: http://api.transmitsms.com/format-number.json?countrycode=AU&msisdn=0455667889
     body:
       encoding: US-ASCII
       string: ''

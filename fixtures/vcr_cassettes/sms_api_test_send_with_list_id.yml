@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/send-sms.json?list_id=55314&message=Testing%20API%20with%20list_id%20field
+    uri: http://api.transmitsms.com/send-sms.json?list_id=55314&message=Testing%20API%20with%20list_id%20field
     body:
       encoding: UTF-8
       string: 'null'
