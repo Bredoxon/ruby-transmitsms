@@ -69,30 +69,40 @@ Instance method parameter documentation: [ListsApi Method Params Doc](http://sup
 
 ### NumbersApi
 
-Instance method documentation: [NumbersApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/NumbersApi)
-
 Instance method parameter documentation: [NumbersApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434387-Numbers)
+
+* get_number
+* get_numbers
+* lease_number
 
 ### EmailApi
 
-Instance method documentation: [EmailApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/EmailApi)
-
 Instance method parameter documentation: [EmailApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434397-Email-SMS)
+
+* add_email
+* delete_email
 
 ### KeywordsApi
 
-Instance method documentation: [KeywordsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/KeywordsApi)
-
 Instance method parameter documentation: [KeywordsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434407-Keywords)
+
+* add_keyword
+* edit_keyword
+* get_keywords
 
 ### ResellersApi
 
-Instance method documentation: [ResellersApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/ResellersApi)
-
 Instance method parameter documentation: [ResellersApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200423648-Resellers)
+
+* get_client
+* get_clients
+* add_client
+* edit_client
+* get_transactions
+* get_transaction
 
 ### AccountApi
 
-Instance method documentation: [AccountApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/AccountApi)
-
 Instance method parameter documentation: [AccountApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200204619-Account)
+
+* get_balance
