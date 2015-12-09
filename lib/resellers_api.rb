@@ -21,7 +21,7 @@ class ResellersApi
 
   def config_swagger()
     Swagger.configure do |config|
-      config.host = "https://api.transmitsms.com/".gsub("https://", "").gsub("/", "")
+      config.host = "https://api.transmitsms.com/".gsub("http://", "").gsub("https://", "").gsub("/", "")
       config.base_path = "/"
       config.format = "x-www-form-urlencoded"
       config.camelize_params = false
@@ -267,7 +267,7 @@ class ResellersApi
   
   end
 
-  # Get a list of transactions for a client.
+  # Get a list of transactions for an account.
   # 
   # @param id Transaction ID
   # @return void
