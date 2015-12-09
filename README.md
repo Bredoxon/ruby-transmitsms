@@ -10,7 +10,7 @@ Ruby gem to easily access TransmitSMS RESTful APIs
 ```ruby
 require 'ruby-transmitsms'
 
-# Create new Sms instance
+# Create new Sms instance using API key and secret
 sms = SmsApi.new("15eg266c832fb23c4d90f01055aef355", "bluebird")
 
 # Send a message
@@ -44,15 +44,28 @@ $ ./runtest.sh
 
 ### SmsApi
 
-Instance method documentation: [SmsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/SmsApi)
-
 Instance method parameter documentation: [SmsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200421838-SMS)
+
+* send
+* format_number
+* get_sms
+* get_sms_responses
+* get_user_sms_responses
+* get_sms_sent
+* cancel_sms
  
 ### ListsApi
 
-Instance method documentation: [ListsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/ListsApi)
-
 Instance method parameter documentation: [ListsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200423538-Lists)
+
+* remove_list
+* get_list
+* get_lists
+* add_list
+* add_to_list
+* delete_from_list
+* optout_list_member
+* edit_list_member
 
 ### NumbersApi
 
