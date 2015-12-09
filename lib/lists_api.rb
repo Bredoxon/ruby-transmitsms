@@ -21,7 +21,7 @@ class ListsApi
 
   def config_swagger()
     Swagger.configure do |config|
-      config.host = "https://api.transmitsms.com/".gsub("https://", "").gsub("/", "")
+      config.host = "https://api.transmitsms.com/".gsub("http://", "").gsub("https://", "").gsub("/", "")
       config.base_path = "/"
       config.format = "x-www-form-urlencoded"
       config.camelize_params = false
@@ -100,7 +100,7 @@ class ListsApi
   
   end
 
-  # Get a list of numbers either leased by you or available to be leased.
+  # Add a member to a list.
   # 
   # @param list_id ID of the list to add to
   # @param msisdn Mobile number of the member
@@ -230,7 +230,7 @@ class ListsApi
   
   end
 
-  # Create a new list including the ability to add custom fields.
+  # Edit a member of a list.
   # 
   # @param list_id ID of the list the member belongs to
   # @param msisdn Mobile number of the member to edit
@@ -417,7 +417,7 @@ class ListsApi
   
   end
 
-  # Get a list of numbers either leased by you or available to be leased.
+  # Opt a user out of one list or all lists.
   # 
   # @param list_id ID of the list to opt the user out of. Set this to 0 (zero) to opt out of all of your lists.
   # @param msisdn Mobile number of the member to opt out
@@ -470,7 +470,7 @@ class ListsApi
   
   end
 
-  # Remove contact list.
+  # Delete a list and its members.
   # 
   # @param list_id ID of the list to remove.
   # @return void
