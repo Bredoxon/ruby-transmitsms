@@ -45,5 +45,6 @@ $ ./runtest.sh
 ### SmsApi
 
 Instance method documentation: [SmsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/SmsApi)
+
 Instance method parameter documentation: [SmsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200421838-SMS)
  
