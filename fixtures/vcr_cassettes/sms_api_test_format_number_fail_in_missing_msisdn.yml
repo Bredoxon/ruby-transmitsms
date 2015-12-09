@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.transmitsms.com/format-number.json?countrycode=AU
+    uri: http://api.transmitsms.com/format-number.json?countrycode=AU
     body:
       encoding: US-ASCII
       string: ''

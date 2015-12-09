@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.transmitsms.com/add-list.json?name=my_list
+    uri: http://api.transmitsms.com/add-list.json?name=my_list
     body:
       encoding: UTF-8
       string: 'null'

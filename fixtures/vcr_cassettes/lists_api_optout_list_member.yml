@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.transmitsms.com/optout-list-member.json?list_id=55314&msisdn=61400233560
+    uri: http://api.transmitsms.com/optout-list-member.json?list_id=55314&msisdn=61400233560
     body:
       encoding: UTF-8
       string: 'null'

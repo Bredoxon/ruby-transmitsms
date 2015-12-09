@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.transmitsms.com/send-sms.json?message=Testing%20API%20to%20field&to=61422222222
+    uri: http://api.transmitsms.com/send-sms.json?message=Testing%20API%20to%20field&to=61422222222
     body:
       encoding: UTF-8
       string: 'null'

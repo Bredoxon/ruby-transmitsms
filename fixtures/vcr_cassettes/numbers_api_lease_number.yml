@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.transmitsms.com/lease-number.json?number=0422222213
+    uri: http://api.transmitsms.com/lease-number.json?number=0422222213
     body:
       encoding: UTF-8
       string: 'null'

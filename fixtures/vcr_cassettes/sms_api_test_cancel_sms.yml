@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.transmitsms.com/cancel-sms.json?id=27741
+    uri: http://api.transmitsms.com/cancel-sms.json?id=27741
     body:
       encoding: US-ASCII
       string: ''

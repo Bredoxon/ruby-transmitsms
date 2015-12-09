@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.transmitsms.com/edit-client.json?client_id=2024
+    uri: http://api.transmitsms.com/edit-client.json?client_id=2024
     body:
       encoding: UTF-8
       string: 'null'
