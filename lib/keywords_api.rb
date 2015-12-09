@@ -98,7 +98,7 @@ class KeywordsApi
   
   end
 
-  # Add a keyword to an existing virtual number
+  # Edit an existing keyword.
   # 
   # @param keyword The first word of a text message
   # @param number The dedicated virtual number that the keyword belongs to

@@ -267,7 +267,7 @@ class ResellersApi
   
   end
 
-  # Get a list of transactions for a client.
+  # Get a list of transactions for an account.
   # 
   # @param id Transaction ID
   # @return void
