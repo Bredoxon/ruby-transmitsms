@@ -48,3 +48,38 @@ Instance method documentation: [SmsApi Doc](http://www.rubydoc.info/gems/ruby-tr
 
 Instance method parameter documentation: [SmsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200421838-SMS)
  
+### ListsApi
+
+Instance method documentation: [ListsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/ListsApi)
+
+Instance method parameter documentation: [ListsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200423538-Lists)
+
+### NumbersApi
+
+Instance method documentation: [NumbersApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/NumbersApi)
+
+Instance method parameter documentation: [NumbersApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434387-Numbers)
+
+### EmailApi
+
+Instance method documentation: [EmailApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/EmailApi)
+
+Instance method parameter documentation: [EmailApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434397-Email-SMS)
+
+### KeywordsApi
+
+Instance method documentation: [KeywordsApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/KeywordsApi)
+
+Instance method parameter documentation: [KeywordsApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200434407-Keywords)
+
+### ResellersApi
+
+Instance method documentation: [ResellersApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/ResellersApi)
+
+Instance method parameter documentation: [ResellersApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200423648-Resellers)
+
+### AccountApi
+
+Instance method documentation: [AccountApi Doc](http://www.rubydoc.info/gems/ruby-transmitsms/0.1.1/AccountApi)
+
+Instance method parameter documentation: [AccountApi Method Params Doc](http://support.burstsms.com/hc/en-us/sections/200204619-Account)
