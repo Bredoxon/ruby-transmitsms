@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/edit-list-member.json?list_id=55314&msisdn=61400124714
+    uri: https://api.transmitsms.com/edit-list-member.json?list_id=55314&msisdn=61400124714
     body:
       encoding: UTF-8
       string: 'null'

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.burst.dev.local/get-sms-responses.json?message_id=27746
+    uri: https://api.transmitsms.com/get-sms-responses.json?message_id=27746
     body:
       encoding: US-ASCII
       string: ''

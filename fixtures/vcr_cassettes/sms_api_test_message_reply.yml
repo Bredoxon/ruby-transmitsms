@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/message-reply.json?from=61422222222&message=Testing%20API%20to%20field&to=61412345678
+    uri: https://api.transmitsms.com/message-reply.json?from=61422222222&message=Testing%20API%20to%20field&to=61412345678
     body:
       encoding: UTF-8
       string: 'null'

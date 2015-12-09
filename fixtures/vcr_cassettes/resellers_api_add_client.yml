@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.burst.dev.local/add-client.json?email=my@clienttest13.com&msisdn=%2B61491570156&name=my_client_test_13&password=my_password
+    uri: https://api.transmitsms.com/add-client.json?email=my@clienttest13.com&msisdn=%2B61491570156&name=my_client_test_13&password=my_password
     body:
       encoding: UTF-8
       string: 'null'
