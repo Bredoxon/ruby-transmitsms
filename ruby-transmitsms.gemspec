@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'typhoeus', '>=0.2.1'
   s.add_runtime_dependency 'addressable', '>=2.2.4' #, '>=2.2.4'
-  s.add_runtime_dependency 'json_pure', '>=1.8.3' #'json', '>=1.4.6'
+  s.add_runtime_dependency 'json_pure', '=1.8.3' #'json', '>=1.4.6'
 
   s.add_development_dependency 'rspec', '>=2.5.0'
   s.add_development_dependency 'rspec-mocks'
