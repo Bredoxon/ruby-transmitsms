@@ -520,6 +520,9 @@ class SmsApi
     queryopts = options.select do |key,value|
       query_param_keys.include? key
     end
+    queryopts_hash = queryopts.inject({}) do |r, s|
+       r.merge!({s[0] => s[1]})
+    end
 
     # header parameters
     headers = {}
@@ -541,10 +544,6 @@ class SmsApi
     # form parameters
     form_parameter_hash = {}
     
-    
-    
-    Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
-    
-  
+    Swagger::Request.new(:POST, path, {:params=>queryopts_hash,:headers=>headers, :body=>post_body, :form_params => form_parameter_hash }).make
   end
 end
