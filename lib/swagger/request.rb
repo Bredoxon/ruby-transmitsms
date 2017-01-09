@@ -15,7 +15,6 @@ module Swagger
     def initialize(http_method, path, attributes={})
       attributes[:format] ||= Swagger.configuration.format
       attributes[:params] ||= {}
-
       # Set default headers
       default_headers = {
         'Content-Type' => "application/#{attributes[:format].downcase}",
@@ -52,20 +51,16 @@ module Swagger
     # Construct a base URL
     #
     def url(options = {})  
-      u = Addressable::URI.new(
-        :scheme => Swagger.configuration.scheme,
-        :host => Swagger.configuration.host,
-        :path => self.interpreted_path,
-        :query => self.query_string.sub(/\?/, '')
-      ).to_s
-      
-      # Drop trailing question mark, if present
-      u.sub! /\?$/, ''
-      
-      # Obfuscate API key?
-      u.sub! /api\_key=\w+/, 'api_key=YOUR_API_KEY' if options[:obfuscated]
-      
-      u
+      # u = Addressable::URI.new(
+      #   :scheme => Swagger.configuration.scheme,
+      #   :host => Swagger.configuration.host,
+      #   :path => self.interpreted_path,
+      #   :query => self.query_string.sub(/\?/, '')
+      # ).to_s
+      parameters = '?'
+      self.query_string.each_pair {|k, v| parameters << "#{URI.encode(k.to_s)}=#{URI.encode v}&"}
+
+      URI.parse("https://api.transmitsms.com" + self.interpreted_path + parameters).to_s
     end
 
     # Iterate over the params hash, injecting any path values into the path string
@@ -146,9 +141,10 @@ module Swagger
       return "" if query_values.blank?
     
       # Addressable requires query_values to be set after initialization..
-      qs = Addressable::URI.new
-      qs.query_values = query_values
-      qs.to_s
+      # qs = Addressable::URI.new
+      # qs.query_values = query_values
+      # qs.to_s
+      query_values
     end
   
     def make
@@ -159,35 +155,35 @@ module Swagger
       when :get,:GET
         Typhoeus::Request.get(
           self.url,
-          :headers => self.headers.stringify_keys,
+          :headers => self.headers.stringify_keys
         )
 
       when :post,:POST
         Typhoeus::Request.post(
           self.url,
           :body => self.outgoing_body,
-          :headers => self.headers.stringify_keys,
+          :headers => self.headers.stringify_keys
         )
 
       when :patch,:PATCH
         Typhoeus::Request.patch(
           self.url,
           :body => self.outgoing_body,
-          :headers => self.headers.stringify_keys,
+          :headers => self.headers.stringify_keys
         )
 
       when :put,:PUT
         Typhoeus::Request.put(
           self.url,
           :body => self.outgoing_body,
-          :headers => self.headers.stringify_keys,
+          :headers => self.headers.stringify_keys
         )
       
       when :delete,:DELETE
         Typhoeus::Request.delete(
           self.url,
           :body => self.outgoing_body,
-          :headers => self.headers.stringify_keys,
+          :headers => self.headers.stringify_keys
         )
       end
       Response.new(response)
