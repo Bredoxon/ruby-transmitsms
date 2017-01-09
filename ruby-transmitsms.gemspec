@@ -3,10 +3,10 @@
 #require "swagger/version"
 
 Gem::Specification.new do |s|
-  s.metadata["allowed_push_host"] = "https://rubygems.org"
+  #s.metadata["allowed_push_host"] = "https://rubygems.org"
 
   s.name        = "ruby-transmitsms"
-  s.version     = "0.1.1"
+  s.version     = '1.0.0' #"0.1.1"
   s.authors     = ["Transmitsms Developers"]
   s.email       = ["transmitsms@gmail.com"]
   s.homepage    = "http://transmitsms.com"
@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.description = "Ruby gem to easily access TransmitSMS RESTful APIs"
 
   s.add_runtime_dependency 'typhoeus', '>=0.2.1'
-  s.add_runtime_dependency 'addressable', '>=2.2.4'
-  s.add_runtime_dependency 'json', '>=1.4.6'
+  s.add_runtime_dependency 'addressable', '>=2.2.4' #, '>=2.2.4'
+  s.add_runtime_dependency 'json_pure', '=1.8.3' #'json', '>=1.4.6'
 
   s.add_development_dependency 'rspec', '>=2.5.0'
   s.add_development_dependency 'rspec-mocks'
